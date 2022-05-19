@@ -15,14 +15,33 @@ class WallServiceTest {
 
         val result = WallService.add(controlledPost)
 
-        assertEquals(0,result.id)
+        assertEquals(2,result.id)
     }
 
     @Test
-    fun update() {
+    fun updateTrue() {
+        val service = WallService
+        service.postsCleaner()
+        service.add(Post(0,2,5))
+        service.add(Post(2,4,8))
+        service.add(Post(7,10,125))
+        val controlledPost = Post(7,2,5)
+
+        val result = service.update(controlledPost)
+
+        assertTrue(result)
+    }
+    @Test
+    fun updateFalse() {
+        WallService.postsCleaner()
+        WallService.add(Post(0,2,5))
+        WallService.add(Post(2,4,8))
+        WallService.add(Post(7,10,125))
+        val controlledPost = Post(1,111,5)
+
+        val result = WallService.update(controlledPost)
+
+        assertFalse(result)
     }
 
-    @Test
-    fun printAllPosts() {
-    }
 }

@@ -15,14 +15,11 @@ object WallService {
         return posts.last()
     }
 
-    //fun likedById (id: Integer){
-    //    TODO("like operation not implemented")
-    //}
     fun update(postUpdate: Post): Boolean {
-        val (_, ownerId) = postUpdate
+        val (id) = postUpdate
         var status = false
         for ((index, post) in posts.withIndex()) {
-            if (post.ownerId == ownerId) {
+            if (post.id == id) {
                 posts[index] = post.copy(
                     fromId = 200,
                     createdBy = 200,
@@ -47,6 +44,7 @@ object WallService {
                     postponedId = 200
                 )
                 status = true
+                return status
             } else status = false
         }
         return status

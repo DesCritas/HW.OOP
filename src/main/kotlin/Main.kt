@@ -4,7 +4,7 @@ import service.WallService
 fun main() {
     val service = WallService
     val post1 = Post(
-        0,
+        1,
         2,
         3,
         4,
@@ -58,6 +58,5 @@ fun main() {
     service.add(post1)
     service.add(post2)
     service.printAllPosts()
-    service.update(post1)
     service.printAllPosts()
 }
