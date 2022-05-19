@@ -25,7 +25,7 @@ class WallServiceTest {
         service.add(Post(0,2,5))
         service.add(Post(2,4,8))
         service.add(Post(7,10,125))
-        val controlledPost = Post(7,2,5)
+        val controlledPost = Post(1,2,5)
 
         val result = service.update(controlledPost)
 
@@ -37,7 +37,7 @@ class WallServiceTest {
         WallService.add(Post(0,2,5))
         WallService.add(Post(2,4,8))
         WallService.add(Post(7,10,125))
-        val controlledPost = Post(1,111,5)
+        val controlledPost = Post(7,111,5)
 
         val result = WallService.update(controlledPost)
 
