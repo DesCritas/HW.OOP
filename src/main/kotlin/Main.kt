@@ -30,7 +30,7 @@ fun main() {
         15
     )
     val post2 = Post(
-        16,
+        0,
         17,
         18,
         19,

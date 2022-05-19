@@ -26,4 +26,28 @@ data class Post(
     val donut: Donut,
     val postponedId: Int
     )  {
+    constructor(id:Int,ownerId: Int,date: Int):this(id,
+        ownerId,
+        3,
+        4,
+        date,
+        "FirstPost!",
+        6,
+        7,
+        true,
+        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),
+        Copyright(9, "https://copyright.com", "Netology", "OpenSource"),
+        Likes(10, userLikes = true, canLike = true, canPublish = true),
+        Reposts(11, true),
+        Views(12),
+        PostType.COPY,
+        13,
+        canPin = true,
+        canDelete = true,
+        canEdit = true,
+        isPined = true,
+        markedAsAds = true,
+        isFavorite = true,
+        Donut(true, 14, Placeholder("какое-то сообщение"), true, EditMode.ALL),
+        15)
 }
