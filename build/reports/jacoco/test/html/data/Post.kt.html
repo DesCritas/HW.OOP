@@ -11,44 +11,51 @@
 <span class="pc" id="L11">    val replyPostId: Int,</span>
 <span class="pc" id="L12">    val friendsOnly: Boolean,</span>
 <span class="pc" id="L13">    val comments: Comments,</span>
-<span class="pc" id="L14">    val copyright: Copyright,</span>
+<span class="pc" id="L14">    val copyright: Copyright?,</span>
 <span class="pc" id="L15">    val likes: Likes,</span>
 <span class="pc" id="L16">    val reposts: Reposts,</span>
 <span class="pc" id="L17">    val views: Views,</span>
 <span class="pc" id="L18">    val postType: PostType,</span>
-<span class="pc" id="L19">    val signedId: Int,</span>
-<span class="pc" id="L20">    val canPin: Boolean,</span>
-<span class="pc" id="L21">    val canDelete: Boolean,</span>
-<span class="pc" id="L22">    val canEdit: Boolean,</span>
-<span class="pc" id="L23">    val isPined: Boolean,</span>
-<span class="pc" id="L24">    val markedAsAds: Boolean,</span>
-<span class="pc" id="L25">    val isFavorite: Boolean,</span>
-<span class="pc" id="L26">    val donut: Donut,</span>
-<span class="pc" id="L27">    val postponedId: Int</span>
+<span class="pc" id="L19">    val postSource: PostSource = PostSource(data1 = &quot;Likes&quot;),</span>
+    //val attachments: Attachments,
+<span class="pc" id="L21">    val geo: Geo?,</span>
+<span class="pc" id="L22">    val signerId: Int,</span>
+<span class="pc" id="L23">    val copyHistory: Array&lt;Post&gt;?,</span>
+<span class="pc" id="L24">    val canPin: Boolean,</span>
+<span class="pc" id="L25">    val canDelete: Boolean,</span>
+<span class="pc" id="L26">    val canEdit: Boolean,</span>
+<span class="pc" id="L27">    val isPined: Boolean,</span>
+<span class="pc" id="L28">    val markedAsAds: Boolean,</span>
+<span class="pc" id="L29">    val isFavorite: Boolean,</span>
+<span class="pc" id="L30">    val donut: Donut,</span>
+<span class="pc" id="L31">    val postponedId: Int</span>
     )  {
-<span class="fc" id="L29">    constructor(id:Int,ownerId: Int,date: Int):this(id,</span>
-<span class="fc" id="L30">        ownerId,</span>
-<span class="fc" id="L31">        3,</span>
-<span class="fc" id="L32">        4,</span>
-<span class="fc" id="L33">        date,</span>
-<span class="fc" id="L34">        &quot;FirstPost!&quot;,</span>
-<span class="fc" id="L35">        6,</span>
-<span class="fc" id="L36">        7,</span>
-<span class="fc" id="L37">        true,</span>
-<span class="fc" id="L38">        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
-<span class="fc" id="L39">        Copyright(9, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
-<span class="fc" id="L40">        Likes(10, userLikes = true, canLike = true, canPublish = true),</span>
-<span class="fc" id="L41">        Reposts(11, true),</span>
-<span class="fc" id="L42">        Views(12),</span>
-<span class="fc" id="L43">        PostType.COPY,</span>
-<span class="fc" id="L44">        13,</span>
-<span class="fc" id="L45">        canPin = true,</span>
-<span class="fc" id="L46">        canDelete = true,</span>
-<span class="fc" id="L47">        canEdit = true,</span>
-<span class="fc" id="L48">        isPined = true,</span>
-<span class="fc" id="L49">        markedAsAds = true,</span>
-<span class="fc" id="L50">        isFavorite = true,</span>
-<span class="fc" id="L51">        Donut(true, 14, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
-<span class="fc" id="L52">        15)</span>
-<span class="nc" id="L53">}</span>
+<span class="fc" id="L33">    constructor(id:Int,ownerId: Int,date: Int):this(id,</span>
+<span class="fc" id="L34">        ownerId,</span>
+<span class="fc" id="L35">        fromId = 3,</span>
+<span class="fc" id="L36">        createdBy = 4,</span>
+<span class="fc" id="L37">        date,</span>
+<span class="fc" id="L38">        text = &quot;FirstPost!&quot;,</span>
+<span class="fc" id="L39">        replyOwnerId = 6,</span>
+<span class="fc" id="L40">        replyPostId = 7,</span>
+<span class="fc" id="L41">        friendsOnly = true,</span>
+<span class="fc" id="L42">        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
+<span class="fc" id="L43">        Copyright(9, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
+<span class="fc" id="L44">        Likes(10, userLikes = true, canLike = true, canPublish = true),</span>
+<span class="fc" id="L45">        Reposts(11, true),</span>
+<span class="fc" id="L46">        Views(12),</span>
+<span class="fc" id="L47">        PostType.COPY,</span>
+<span class="fc" id="L48">        PostSource(data1 = &quot;likes&quot;),</span>
+<span class="fc" id="L49">        Geo(),</span>
+<span class="fc" id="L50">        signerId = 13,</span>
+<span class="fc" id="L51">        copyHistory = emptyArray(),</span>
+<span class="fc" id="L52">        canPin = true,</span>
+<span class="fc" id="L53">        canDelete = true,</span>
+<span class="fc" id="L54">        canEdit = true,</span>
+<span class="fc" id="L55">        isPined = true,</span>
+<span class="fc" id="L56">        markedAsAds = true,</span>
+<span class="fc" id="L57">        isFavorite = true,</span>
+<span class="fc" id="L58">        Donut(true, 14, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
+<span class="fc" id="L59">        15)</span>
+<span class="nc" id="L60">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

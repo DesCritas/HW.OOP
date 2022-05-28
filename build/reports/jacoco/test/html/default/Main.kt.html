@@ -3,61 +3,13 @@ import service.WallService
 
 fun main() {
 <span class="nc" id="L5">    val service = WallService</span>
-<span class="nc" id="L6">    val post1 = Post(</span>
-<span class="nc" id="L7">        1,</span>
-<span class="nc" id="L8">        2,</span>
-<span class="nc" id="L9">        3,</span>
-<span class="nc" id="L10">        4,</span>
-<span class="nc" id="L11">        5,</span>
-<span class="nc" id="L12">        &quot;FirstPost!&quot;,</span>
-<span class="nc" id="L13">        6,</span>
-<span class="nc" id="L14">        7,</span>
-<span class="nc" id="L15">        true,</span>
-<span class="nc" id="L16">        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
-<span class="nc" id="L17">        Copyright(9, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
-<span class="nc" id="L18">        Likes(10, userLikes = true, canLike = true, canPublish = true),</span>
-<span class="nc" id="L19">        Reposts(11, true),</span>
-<span class="nc" id="L20">        Views(12),</span>
-<span class="nc" id="L21">        PostType.COPY,</span>
-<span class="nc" id="L22">        13,</span>
-<span class="nc" id="L23">        canPin = true,</span>
-<span class="nc" id="L24">        canDelete = true,</span>
-<span class="nc" id="L25">        canEdit = true,</span>
-<span class="nc" id="L26">        isPined = true,</span>
-<span class="nc" id="L27">        markedAsAds = true,</span>
-<span class="nc" id="L28">        isFavorite = true,</span>
-<span class="nc" id="L29">        Donut(true, 14, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
-<span class="nc" id="L30">        15</span>
-    )
-<span class="nc" id="L32">    val post2 = Post(</span>
-<span class="nc" id="L33">        0,</span>
-<span class="nc" id="L34">        17,</span>
-<span class="nc" id="L35">        18,</span>
-<span class="nc" id="L36">        19,</span>
-<span class="nc" id="L37">        20,</span>
-<span class="nc" id="L38">        &quot;FirstPost!&quot;,</span>
-<span class="nc" id="L39">        21,</span>
-<span class="nc" id="L40">        22,</span>
-<span class="nc" id="L41">        true,</span>
-<span class="nc" id="L42">        Comments(23, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
-<span class="nc" id="L43">        Copyright(24, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
-<span class="nc" id="L44">        Likes(25, userLikes = true, canLike = true, canPublish = true),</span>
-<span class="nc" id="L45">        Reposts(26, true),</span>
-<span class="nc" id="L46">        Views(27),</span>
-<span class="nc" id="L47">        PostType.COPY,</span>
-<span class="nc" id="L48">        28,</span>
-<span class="nc" id="L49">        canPin = true,</span>
-<span class="nc" id="L50">        canDelete = true,</span>
-<span class="nc" id="L51">        canEdit = true,</span>
-<span class="nc" id="L52">        isPined = true,</span>
-<span class="nc" id="L53">        markedAsAds = true,</span>
-<span class="nc" id="L54">        isFavorite = true,</span>
-<span class="nc" id="L55">        Donut(true, 29, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
-<span class="nc" id="L56">        30</span>
-    )
-<span class="nc" id="L58">    service.add(post1)</span>
-<span class="nc" id="L59">    service.add(post2)</span>
-<span class="nc" id="L60">    service.printAllPosts()</span>
-<span class="nc" id="L61">    service.printAllPosts()</span>
-<span class="nc" id="L62">}</span>
+<span class="nc" id="L6">    val post1 = Post(1,2,3)</span>
+<span class="nc" id="L7">    val post2 = Post(0,17,18)</span>
+
+<span class="nc" id="L9">    service.add(post1)</span>
+<span class="nc" id="L10">    service.add(post2)</span>
+<span class="nc" id="L11">    service.printAllPosts()</span>
+<span class="nc" id="L12">    service.update(post1)</span>
+<span class="nc" id="L13">    service.printAllPosts()</span>
+<span class="nc" id="L14">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
