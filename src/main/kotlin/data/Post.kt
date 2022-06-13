@@ -1,9 +1,6 @@
 package data
 
-import data.attachment.AttachmentAudio
-import data.attachment.AttachmentIntrface
-import data.attachment.AttachmentType
-import data.attachment.Audio
+import data.attachment.*
 
 data class Post(
     val id: Int = 0,
@@ -53,8 +50,11 @@ data class Post(
         PostSource(data1 = "likes"),
         attachments = arrayOf(
             AttachmentAudio(AttachmentType.AUDIO, Audio()),
-            AttachmentAudio(AttachmentType.GRAFFITY, Audio())
-        ),//AttachmentAudio(AttachmentType.AUDIO,Audio(1,_,_,_,10,"",null,null,null,100,true,null))),
+            AttachmentGraffity(AttachmentType.GRAFFITY, Graffity()),
+            AttachmentPhoto(AttachmentType.PHOTO, Photo()),
+            AttachmentGraffity(AttachmentType.GRAFFITY, Graffity()),
+            AttachmentNote(AttachmentType.NOTE, Note())
+        ),
         Geo(),
         signerId = 13,
         copyHistory = emptyArray(),
@@ -66,7 +66,5 @@ data class Post(
         isFavorite = true,
         Donut(true, 14, Placeholder("какое-то сообщение"), true, EditMode.ALL),
         15)
-
-
 
     }
