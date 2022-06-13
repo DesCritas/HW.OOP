@@ -1,5 +1,10 @@
 package data
 
+import data.attachment.AttachmentAudio
+import data.attachment.AttachmentIntrface
+import data.attachment.AttachmentType
+import data.attachment.Audio
+
 data class Post(
     val id: Int = 0,
     val ownerId: Int,
@@ -17,7 +22,7 @@ data class Post(
     val views: Views,
     val postType: PostType,
     val postSource: PostSource = PostSource(data1 = "Likes"),
-    //val attachments: Attachments,
+    val attachments: Array<AttachmentIntrface>?,
     val geo: Geo?,
     val signerId: Int,
     val copyHistory: Array<Post>?,
@@ -46,6 +51,10 @@ data class Post(
         Views(12),
         PostType.COPY,
         PostSource(data1 = "likes"),
+        attachments = arrayOf(
+            AttachmentAudio(AttachmentType.AUDIO, Audio()),
+            AttachmentAudio(AttachmentType.GRAFFITY, Audio())
+        ),//AttachmentAudio(AttachmentType.AUDIO,Audio(1,_,_,_,10,"",null,null,null,100,true,null))),
         Geo(),
         signerId = 13,
         copyHistory = emptyArray(),
@@ -57,4 +66,7 @@ data class Post(
         isFavorite = true,
         Donut(true, 14, Placeholder("какое-то сообщение"), true, EditMode.ALL),
         15)
-}
+
+
+
+    }
