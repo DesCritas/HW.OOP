@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Post.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW.OOP</a> &gt; <a href="index.source.html" class="el_package">data</a> &gt; <span class="el_source">Post.kt</span></div><h1>Post.kt</h1><pre class="source lang-java linenums">package data
 
-<span class="pc" id="L3">data class Post(</span>
-<span class="pc" id="L4">    val id: Int = 0,</span>
-<span class="pc" id="L5">    val ownerId: Int,</span>
-<span class="pc" id="L6">    val fromId: Int,</span>
-<span class="pc" id="L7">    val createdBy: Int,</span>
-<span class="pc" id="L8">    val date: Int,</span>
-<span class="pc" id="L9">    val text: String,</span>
-<span class="pc" id="L10">    val replyOwnerId: Int,</span>
-<span class="pc" id="L11">    val replyPostId: Int,</span>
-<span class="pc" id="L12">    val friendsOnly: Boolean,</span>
-<span class="pc" id="L13">    val comments: Comments,</span>
-<span class="pc" id="L14">    val copyright: Copyright?,</span>
-<span class="pc" id="L15">    val likes: Likes,</span>
-<span class="pc" id="L16">    val reposts: Reposts,</span>
-<span class="pc" id="L17">    val views: Views,</span>
-<span class="pc" id="L18">    val postType: PostType,</span>
-<span class="pc" id="L19">    val postSource: PostSource = PostSource(data1 = &quot;Likes&quot;),</span>
-    //val attachments: Attachments,
-<span class="pc" id="L21">    val geo: Geo?,</span>
-<span class="pc" id="L22">    val signerId: Int,</span>
-<span class="pc" id="L23">    val copyHistory: Array&lt;Post&gt;?,</span>
-<span class="pc" id="L24">    val canPin: Boolean,</span>
-<span class="pc" id="L25">    val canDelete: Boolean,</span>
-<span class="pc" id="L26">    val canEdit: Boolean,</span>
-<span class="pc" id="L27">    val isPined: Boolean,</span>
-<span class="pc" id="L28">    val markedAsAds: Boolean,</span>
-<span class="pc" id="L29">    val isFavorite: Boolean,</span>
-<span class="pc" id="L30">    val donut: Donut,</span>
-<span class="pc" id="L31">    val postponedId: Int</span>
+import data.attachment.*
+
+<span class="pc" id="L5">data class Post(</span>
+<span class="pc" id="L6">    val id: Int = 0,</span>
+<span class="pc" id="L7">    val ownerId: Int,</span>
+<span class="pc" id="L8">    val fromId: Int,</span>
+<span class="pc" id="L9">    val createdBy: Int,</span>
+<span class="pc" id="L10">    val date: Int,</span>
+<span class="pc" id="L11">    val text: String,</span>
+<span class="pc" id="L12">    val replyOwnerId: Int,</span>
+<span class="pc" id="L13">    val replyPostId: Int,</span>
+<span class="pc" id="L14">    val friendsOnly: Boolean,</span>
+<span class="pc" id="L15">    val comments: Comments,</span>
+<span class="pc" id="L16">    val copyright: Copyright?,</span>
+<span class="pc" id="L17">    val likes: Likes,</span>
+<span class="pc" id="L18">    val reposts: Reposts,</span>
+<span class="pc" id="L19">    val views: Views,</span>
+<span class="pc" id="L20">    val postType: PostType,</span>
+<span class="pc" id="L21">    val postSource: PostSource = PostSource(data1 = &quot;Likes&quot;),</span>
+<span class="pc" id="L22">    val attachments: Array&lt;AttachmentIntrface&gt;?,</span>
+<span class="pc" id="L23">    val geo: Geo?,</span>
+<span class="pc" id="L24">    val signerId: Int,</span>
+<span class="pc" id="L25">    val copyHistory: Array&lt;Post&gt;?,</span>
+<span class="pc" id="L26">    val canPin: Boolean,</span>
+<span class="pc" id="L27">    val canDelete: Boolean,</span>
+<span class="pc" id="L28">    val canEdit: Boolean,</span>
+<span class="pc" id="L29">    val isPined: Boolean,</span>
+<span class="pc" id="L30">    val markedAsAds: Boolean,</span>
+<span class="pc" id="L31">    val isFavorite: Boolean,</span>
+<span class="pc" id="L32">    val donut: Donut,</span>
+<span class="pc" id="L33">    val postponedId: Int</span>
     )  {
-<span class="fc" id="L33">    constructor(id:Int,ownerId: Int,date: Int):this(id,</span>
-<span class="fc" id="L34">        ownerId,</span>
-<span class="fc" id="L35">        fromId = 3,</span>
-<span class="fc" id="L36">        createdBy = 4,</span>
-<span class="fc" id="L37">        date,</span>
-<span class="fc" id="L38">        text = &quot;FirstPost!&quot;,</span>
-<span class="fc" id="L39">        replyOwnerId = 6,</span>
-<span class="fc" id="L40">        replyPostId = 7,</span>
-<span class="fc" id="L41">        friendsOnly = true,</span>
-<span class="fc" id="L42">        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
-<span class="fc" id="L43">        Copyright(9, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
-<span class="fc" id="L44">        Likes(10, userLikes = true, canLike = true, canPublish = true),</span>
-<span class="fc" id="L45">        Reposts(11, true),</span>
-<span class="fc" id="L46">        Views(12),</span>
-<span class="fc" id="L47">        PostType.COPY,</span>
-<span class="fc" id="L48">        PostSource(data1 = &quot;likes&quot;),</span>
-<span class="fc" id="L49">        Geo(),</span>
-<span class="fc" id="L50">        signerId = 13,</span>
-<span class="fc" id="L51">        copyHistory = emptyArray(),</span>
-<span class="fc" id="L52">        canPin = true,</span>
-<span class="fc" id="L53">        canDelete = true,</span>
-<span class="fc" id="L54">        canEdit = true,</span>
-<span class="fc" id="L55">        isPined = true,</span>
-<span class="fc" id="L56">        markedAsAds = true,</span>
-<span class="fc" id="L57">        isFavorite = true,</span>
-<span class="fc" id="L58">        Donut(true, 14, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
-<span class="fc" id="L59">        15)</span>
-<span class="nc" id="L60">}</span>
+<span class="fc" id="L35">    constructor(id:Int,ownerId: Int,date: Int):this(id,</span>
+<span class="fc" id="L36">        ownerId,</span>
+<span class="fc" id="L37">        fromId = 3,</span>
+<span class="fc" id="L38">        createdBy = 4,</span>
+<span class="fc" id="L39">        date,</span>
+<span class="fc" id="L40">        text = &quot;FirstPost!&quot;,</span>
+<span class="fc" id="L41">        replyOwnerId = 6,</span>
+<span class="fc" id="L42">        replyPostId = 7,</span>
+<span class="fc" id="L43">        friendsOnly = true,</span>
+<span class="fc" id="L44">        Comments(8, canPost = true, groupCanPost = true, canClose = true, canOpen = true),</span>
+<span class="fc" id="L45">        Copyright(9, &quot;https://copyright.com&quot;, &quot;Netology&quot;, &quot;OpenSource&quot;),</span>
+<span class="fc" id="L46">        Likes(10, userLikes = true, canLike = true, canPublish = true),</span>
+<span class="fc" id="L47">        Reposts(11, true),</span>
+<span class="fc" id="L48">        Views(12),</span>
+<span class="fc" id="L49">        PostType.COPY,</span>
+<span class="fc" id="L50">        PostSource(data1 = &quot;likes&quot;),</span>
+        attachments = arrayOf(
+<span class="fc" id="L52">            AttachmentAudio(AttachmentType.AUDIO, Audio()),</span>
+<span class="fc" id="L53">            AttachmentGraffity(AttachmentType.GRAFFITY, Graffity()),</span>
+<span class="fc" id="L54">            AttachmentPhoto(AttachmentType.PHOTO, Photo()),</span>
+<span class="fc" id="L55">            AttachmentGraffity(AttachmentType.GRAFFITY, Graffity()),</span>
+<span class="fc" id="L56">            AttachmentNote(AttachmentType.NOTE, Note())</span>
+        ),
+<span class="fc" id="L58">        Geo(),</span>
+<span class="fc" id="L59">        signerId = 13,</span>
+<span class="fc" id="L60">        copyHistory = emptyArray(),</span>
+<span class="fc" id="L61">        canPin = true,</span>
+<span class="fc" id="L62">        canDelete = true,</span>
+<span class="fc" id="L63">        canEdit = true,</span>
+<span class="fc" id="L64">        isPined = true,</span>
+<span class="fc" id="L65">        markedAsAds = true,</span>
+<span class="fc" id="L66">        isFavorite = true,</span>
+<span class="fc" id="L67">        Donut(true, 14, Placeholder(&quot;РєР°РєРѕРµ-С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ&quot;), true, EditMode.ALL),</span>
+<span class="fc" id="L68">        15)</span>
+
+<span class="nc" id="L70">    }</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
