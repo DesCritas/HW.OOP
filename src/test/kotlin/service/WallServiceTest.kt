@@ -1,5 +1,6 @@
 package service
 
+import data.Comment
 import data.Post
 import org.junit.Test
 
@@ -43,5 +44,22 @@ class WallServiceTest {
 
         assertFalse(result)
     }
+
+    @Test
+    fun createCommentSuccess() {
+        WallService.postsCleaner()
+        WallService.add(Post(0,2,5))
+        WallService.add(Post(2,4,8))
+        WallService.createComment(1, Comment())
+    }
+    @Test (expected = PostNotFoundException::class)
+    fun createCommentFailure() {
+        WallService.postsCleaner()
+        WallService.add(Post(0,2,5))
+        WallService.add(Post(2,4,8))
+        WallService.createComment(0, Comment())
+
+    }
+
 
 }

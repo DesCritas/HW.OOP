@@ -5,6 +5,19 @@ import data.*
 object WallService {
     private var posts = emptyArray<Post>()
 
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for (post in posts){
+            if (post.id == postId){
+                comments += comment
+                println(comments.get(comments.size-1))
+                return comments.get(comments.size-1)
+            }
+        }
+        throw PostNotFoundException("no post with id: $postId")
+    }
+
     fun postsCleaner(){
         posts = emptyArray()
     }
